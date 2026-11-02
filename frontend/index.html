@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Commerce Credit Card Fraud Detection</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛡️ E-Commerce Credit Card Fraud Detector</h1>
+            <p>Data Mining & Machine Learning Based Transaction Risk Analyzer</p>
+        </header>
+
+        <main class="content-grid">
+            <form id="fraudForm">
+                <div class="form-group">
+                    <label>Transaction Amount ($)</label>
+                    <input type="number" step="0.01" id="transaction_amount" required placeholder="e.g. 250.50">
+                </div>
+
+                <div class="form-group">
+                    <label>Transaction Hour (0 - 23)</label>
+                    <input type="number" min="0" max="23" id="transaction_hour" required placeholder="e.g. 14">
+                </div>
+
+                <div class="form-group">
+                    <label>Distance from Home (km)</label>
+                    <input type="number" step="0.1" id="distance_from_home_km" required placeholder="e.g. 12.5">
+                </div>
+
+                <div class="form-group">
+                    <label>Failed Login Attempts</label>
+                    <input type="number" min="0" id="failed_login_attempts" required value="0">
+                </div>
+
+                <div class="form-group">
+                    <label>Is Foreign IP Address?</label>
+                    <select id="is_foreign_ip">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>High Risk Country Source?</label>
+                    <select id="is_high_risk_country">
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Shipping Matches Billing Address?</label>
+                    <select id="shipping_billing_address_match">
+                        <option value="1">Yes</option>
+                        <option value="0">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Device Type</label>
+                    <select id="device_type">
+                        <option value="0">Mobile</option>
+                        <option value="1">Desktop</option>
+                        <option value="2">Tablet</option>
+                    </select>
+                </div>
+
+                <button type="submit" id="btnSubmit">Analyze Transaction</button>
+            </form>
+
+            <div id="resultCard" class="result-card hidden">
+                <h3>Analysis Result</h3>
+                <div id="statusBadge" class="badge"></div>
+                <div class="score-container">
+                    <span class="label">Fraud Risk Score:</span>
+                    <span id="riskScore" class="score">0%</span>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
